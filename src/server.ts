@@ -5,9 +5,12 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
 import mustache from 'mustache-express';
+import dotenv from 'dotenv';
 import mainRoutes from './routes/index';
 import adminRoutes from './routes/admin';
 
+/* Create environment variable */
+dotenv.config();
 /* Server extension */
 const server = express();
 /* Configuração do Mustache */
@@ -39,4 +42,4 @@ server.use((req: Request, res: Response) => {
 
 /* Server port */
 
-server.listen(80);
+server.listen(process.env.PORT);
