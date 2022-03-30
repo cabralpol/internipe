@@ -3,9 +3,15 @@
 Opa, {{name}} você já tem {{age}} anos?
 <hr />
 <ul>
-    {{#products}}
-    <li>{{title}} - R$ {{price}}</li>
-    {{/products}}
+    {{#players}}
+    <li>{{name}} - {{email}}</li>
+    {{/players}}
+</ul>
+<hr />
+<ul>
+    {{#idades}}
+    <li>{{name}} - Idade {{age}}</li>
+    {{/idades}}
 </ul>
 
 {{>partials/footer}}

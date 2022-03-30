@@ -6,7 +6,7 @@ import express, { Request, Response } from 'express';
 import path from 'path';
 import mustache from 'mustache-express';
 import mainRoutes from './routes/index';
-import panelRoutes from './routes/panel';
+import adminRoutes from './routes/admin';
 
 /* Server extension */
 const server = express();
@@ -29,8 +29,8 @@ server.use(express.urlencoded({ extended: true }))
 
 // Create main router
 server.use('/', mainRoutes);
-//Create panel router
-server.use('/panel', panelRoutes);
+//Create admin router
+server.use('/admin', adminRoutes);
 // If no page is found
 server.use((req: Request, res: Response) => {
     req.params;
