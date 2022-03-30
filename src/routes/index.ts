@@ -1,21 +1,23 @@
 // Main Routes
-import {Router, Request, Response} from 'express';
+import { Router } from 'express';
+
+import * as homeController from '../controllers/homeController';
+import * as aboutController from '../controllers/aboutController';
+import * as contactController from '../controllers/contactController';
+import * as playerController from '../controllers/playerController';
 
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-    // Pegar as informações do banco de dados
-    // Organizar as informações
-    // E por último enviar para o template angine
-    res.send('Olá mundo!');    
-});
+router.get('/', homeController.home);
 
-router.get('/contact', (req: Request, res: Response) => {
-    res.send('Formulário de Contato');
-});
+router.get('/about', aboutController.about);
 
-router.get('/about', (req: Request, res: Response) => {
-    res.send('Página sobre a empresa');
-});
+router.get('/contact', contactController.contact);
+
+router.get('/player', playerController.selectPlayers);
+router.get('/player/:id', playerController.selectPlayer);
+router.post('/player', playerController.insertPlayer);
+router.put('/player/:id', playerController.updatePlayer);
+router.delete('/player/:id', playerController.deletePlayer);
 
 export default router;

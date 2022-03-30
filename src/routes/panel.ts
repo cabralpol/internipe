@@ -1,13 +1,14 @@
 // Panel Routes
 import {Router, Request, Response} from 'express';
 
+import * as panelController from '../controllers/panelController';
+
 const router = Router();
 
-router.get('/', (req: Request, res: Response) => {
-    res.send('Home do Painel Administrativo');
-});
+router.get('/', panelController.panel);
 
 router.get('/usersView', (req: Request, res: Response) => {
+    req;
     res.send('Ver Usuários Cadastrados');
 });
 
